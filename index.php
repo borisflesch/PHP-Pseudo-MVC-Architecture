@@ -22,6 +22,7 @@ if ($url == '') {
 } elseif (preg_match('#^([a-zA-Z0-9-]+)-([0-9])+$#', $url, $params)) { // ...or dynamic with Regex (params stored in $params var and available in the asked controller)
 	$controller = 'article';
 } else {
+		// If no match, call 404 Error controller
         $controller = '404';
 }
 
