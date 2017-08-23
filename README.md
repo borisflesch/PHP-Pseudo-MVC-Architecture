@@ -14,25 +14,25 @@ As I said, I think that this architecture can be really powerful even if it stil
 - It would be great to see this architecture evolve and become even more powerful and useful through time thanks to GitHub contributors
 
 ## Files structure
-- */app/* Contains all server-side files
-	- */app/class/* Contains all PHP Classes.
+- **/app/** Contains all server-side files
+	- **/app/class/** Contains all PHP Classes.
 	I distinguish mainly 2 types of classes: "Tables" classes which allows to create hydrated Objects from a database (files named Tablename.php) *and* "Manager" classes in which I make all my requests to the database concerning a specific table (files named TablenameManager.php).
 	In this architecture, Manager classes plays a bit the role of a Model in a real MVC architecture: the manager fetches the needed data into the database and returns a corresponding Table contained fetched data.
-	- */app/controllers/* Contains all PHP controllers scripts: the controller should be the bridge between the Model and the View. In this architecture, the controller asks for data through Manager classes (then it eventually pass it into some algorithms) and it finally calls the corresponding view to show data to the client.
-	- */app/php/* Can contain misc PHP scripts
-		- */app/php/handlers/* Especially contains Asynchronous called scripts. I always use them with jQuery Ajax to treat the request and return JSON formated data.
-	- */app/views/* Contains all views PLUS the page default layout.
+	- **/app/controllers/** Contains all PHP controllers scripts: the controller should be the bridge between the Model and the View. In this architecture, the controller asks for data through Manager classes (then it eventually pass it into some algorithms) and it finally calls the corresponding view to show data to the client.
+	- **/app/php/** Can contain misc PHP scripts
+		- **/app/php/handlers/** Especially contains Asynchronous called scripts. I always use them with jQuery Ajax to treat the request and return JSON formated data.
+	- **/app/views/** Contains all views PLUS the page default layout.
 	Views mainly contains HTML elements, PHP echoes and loops but very rarely conditions or other PHP script (which should be done in the Controller file before calling the view).
 	The layout contains default HTML file structure, CSS / JS requests, and so on. The meta title variable can be set from the controller (one controller = one meta title) - the same applies to other metas (description, keywords, ...).
-	- */app/init.php* Contains basic initialisation and configuration of the website: session_start, automatic classes importation function, database connection and Manager classes initialisation (because they need the db to work).
+	- **/app/init.php** Contains basic initialisation and configuration of the website: session_start, automatic classes importation function, database connection and Manager classes initialisation (because they need the db to work).
 
-- */public/* Contains all public client-side files
-	- */public/css/* Contains all CSS files
-	- */public/fonts/* Contains all fonts
-	- */public/img/* Contains all images (it can even contain images uploaded through PHP)
-	- */public/js/* Contains all JS scripts
+- **/public/** Contains all public client-side files
+	- **/public/css/** Contains all CSS files
+	- **/public/fonts/** Contains all fonts
+	- **/public/img/** Contains all images (it can even contain images uploaded through PHP)
+	- **/public/js/** Contains all JS scripts
 
-- */index.php* Is the entry point of the website. It manages requests made to the website and call the corresponding controller.
+- **/index.php** Is the entry point of the website. It manages requests made to the website and call the corresponding controller.
 
 ## English mistakes ?
 I am sorry if texts contains english mistakes. As I am not a native speaker, I tried to make my best to introduce the project in a language that a lot of people know. Feel free to fork the ReadMe file :p
