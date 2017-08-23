@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title><?= $meta_title ?></title>
-	
+
 	<link rel="stylesheet" type="text/css" href="public/css/style.css">
 
 	<!--Let browser know website is optimized for mobile-->
@@ -29,6 +29,17 @@
 		Footer Page
 	</footer>
 
+	<?php
+	if (isset($loadJS)) {
+		foreach ($loadJS as $js) {
+			if (substr($js, 0, 7) == 'http://' OR substr($js, 0, 8) == 'https://') {
+				echo '<script src="'.$js.'"></script>';
+			} else {
+				echo '<script src="public/js/'.$js.'.js"></script>';
+			}
+		}
+	}
+	?>
 	<script src="public/js/app.js"></script>
 </body>
 </html>
